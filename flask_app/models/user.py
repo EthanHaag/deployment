@@ -1,4 +1,3 @@
-from types import NoneType
 from flask_app.config.mySqlconnection import connectToMySQL
 import re
 from flask import flash
