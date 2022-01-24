@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, {{user.first_name}}</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="top">
+        <h1>Welcome back, {{user.first_name}}</h1>
+        <div>
+            <a href="/newRecipe">Create</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="myRecipes">
+        <h2>My recipes:</h2>
+        <table>
+            <tr class="row">
+                <th>Name</th>
+                <th>Under 30 minutes?</th>
+                <th>Actions</th>
+            </tr>
+            {% for recipe in recipes%}
+            {%if user.id == recipe.user_id%}
+            <tr class='row'>
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.under_30_minutes}}</td>
+                <td>
+                    <a href="/recipe/{{recipe.id}}">View</a>
+                    <a href="/editRecipe/{{recipe.id}}">Edit</a>
+                    <a href="/recipe/{{recipe.id}}/delete">delete</a>
+                </td>
+            </tr>
+            {%endif%}
+            {%endfor%}
+        </table>
+    </div>
+    <div class="allRecipes">
+        <h2>All recipes:</h2>
+        <table>
+            <tr class="row">
+                <th>Name</th>
+                <th>Under 30 minutes?</th>
+                <th>Actions</th>
+            </tr>
+            {% for recipe in recipes%}
+            <tr class="row">
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.under_30_minutes}}</td>
+                <td>
+                    <a href="/recipe/{{recipe.id}}">View</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+</body>
+</html>

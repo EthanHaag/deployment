@@ -1,0 +1,84 @@
+*{
+    margin:0px;
+    padding:0px
+}
+.form{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    padding:20px;
+    
+}
+.innerForm{
+    background-color: #8a95ff;
+    display:flex;
+    flex-direction: column;
+    padding:20px;
+    font-size: 2.0em;
+    border-radius: 30px ;
+}
+.innerForm *{
+    margin:10px;
+}
+.innerForm input{
+    font-size: 1.5em;
+}
+.error{
+    display: inline-block;
+    background-color: firebrick;
+    border: solid 2px black;
+    width: fit-content;
+    height: fit-content;
+    font-size: 2.0em;
+    margin:auto;
+    padding:20px;
+}
+.top, .top2{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 1.5em;
+    background-color: #8a95ff;
+    color: black;
+}
+.myRecipes, .allRecipes{
+    width: fit-content;
+    height:fit-content;
+    margin:20px auto;
+    border: solid 2px black;
+    font-size: 1.5em;
+
+}
+.myRecipes table, .allRecipes table{
+    border-top:solid 2px black;
+}
+.row td{
+    padding: 20px;
+    text-align: center;
+}
+.btn{
+    border-radius: 30px;
+    box-shadow: 2px 2px gray;
+    background-color:firebrick;
+    color:ghostwhite;
+}
+.biggerinput{
+    height: 200px;
+    font-size: 1.5em;
+}
+.label{
+    display: flex;
+}
+.view{
+    width: fit-content;
+    height: fit-content;
+    margin: 50px auto;
+
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+.p{
+    width: 200px;
+}

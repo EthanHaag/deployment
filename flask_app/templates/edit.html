@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="top2">
+        <h1>Edit recipe</h1>
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="logout">Logout</a>
+        </div>
+        
+    </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="error">{{message}}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <div class="form">
+        <form action="/editRecipe/{{recipe.id}}/process" method="POST" class="innerForm">
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="{{recipe.name}}">
+            <label for="description">Description:</label>
+            <textarea name="description" class="biggerinput">{{recipe.description}}</textarea>
+            <label for="instructions">Instructions:</label>
+            <textarea name="instructions" class="biggerinput">{{recipe.instructions}}</textarea>
+            <label for="under_30_minutes">Under_30_minutes?</label>
+            {%if recipe.under_30_minutes == yes%}
+            <div class="label">
+                <input type="radio" name="under_30_minutes" value="yes" id="yes" checked="checked">
+                <label for="yes" class="labels">Yes</label>
+            </div>
+            <div class="label">
+                <input type="radio" name="under_30_minutes" value="no" id="no">
+                <label for="no" class="labels">No</label>
+            </div>
+            {%else%}
+            <div class="label">
+                <input type="radio" name="under_30_minutes" value="yes" id="yes">
+                <label for="yes" class="labels">Yes</label>
+            </div>
+            <div class="label">
+                <input type="radio" name="under_30_minutes" value="no" id="no" checked="checked">
+                <label for="no" class="labels">No</label>
+            </div>
+            {%endif%}
+            <input type="submit" name="submit" value="Update" class="btn">
+        </form>
+    </div>
+</body>
+</html>

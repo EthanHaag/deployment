@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign_in</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="error">{{message}}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <div class="form">
+        <form action="/register" method="POST" class='innerForm'>
+            <h1>Register</h1>
+            <label for="first_name">First name:</label>
+            <input type="text" name="first_name">
+            <label for="last_name">Last name:</label>
+            <input type="text" name="last_name">
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+            <label for="comfirmPass">Comfirm password:</label>
+            <input type="password" name="confirmPass">
+            <input type="submit" name="submit" value="Register" class="btn">
+        </form>
+        <form action="/login" method="POST" class="innerForm">
+            <h1>Login</h1>
+            <label for="email">email:</label>
+            <input type="text" name="email">
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+            <input type="submit" name="submit" value="Login" class="btn">
+        </form>
+    </div>
+</body>
+</html>
